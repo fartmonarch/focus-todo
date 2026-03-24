@@ -1,8 +1,14 @@
 <template>
-  <view class="todo-item card" :class="{ completed: item.completed }">
-    <checkbox-group class="checkbox-wrapper" @change="onToggle">
-      <checkbox :value="String(item.id)" :checked="item.completed" color="#007aff" style="transform:scale(0.8)" />
-    </checkbox-group>
+  <view 
+    class="todo-item card" 
+    :class="{ completed: item.completed }"
+    @click="onToggle"
+  >
+    <radio 
+      :checked="item.completed" 
+      color="#007aff" 
+      style="transform:scale(0.8); pointer-events: none;" 
+    />
     <text class="text">{{ item.text }}</text>
     <button class="delete-btn" @click.stop="onDelete">Delete</button>
   </view>
@@ -19,6 +25,7 @@ const props = defineProps({
 const emit = defineEmits(['toggle', 'delete'])
 
 const onToggle = () => {
+  // 直接通过最外层 view 的点击触发状态反转
   emit('toggle', props.item.id)
 }
 
@@ -32,15 +39,11 @@ const onDelete = () => {
   display: flex;
   align-items: center;
   transition: all 0.3s ease;
-
-  .checkbox-wrapper {
-    display: flex;
-    align-items: center;
-  }
+  cursor: pointer; // 增加可点击暗示
 
   .text {
     flex: 1;
-    margin-left: 20rpx;
+    margin-left: 10rpx;
     font-size: 32rpx;
     color: #333;
     transition: all 0.3s ease;

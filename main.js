@@ -6,5 +6,10 @@ export function createApp() {
   const app = createSSRApp(App)
   const pinia = Pinia.createPinia()
   app.use(pinia)
-  return { app, Pinia }
+  
+  // 核心：必须返回 pinia 实例
+  return {
+    app,
+    Pinia
+  }
 }

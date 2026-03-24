@@ -1,33 +1,42 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
-export const useTodoStore = defineStore('todo', {
-  state: () => ({
-    list: uni.getStorageSync('todos') || []
-  }),
+export const useTodoStore = defineStore('todo', () => {
+  const list = ref(uni.getStorageSync('TODO_LIST') || [])
 
-  actions: {
-    addTodo(title) {
-      this.list.push({
-        id: Date.now(),
-        title,
-        completed: false
-      })
-      this.save()
-    },
+  const save = () => {
+    uni.setStorageSync('TODO_LIST', list.value)
+  }
 
-    toggleTodo(id) {
-      const item = this.list.find(i => i.id === id)
-      if (item) item.completed = !item.completed
-      this.save()
-    },
+  // 确保这里定义为普通的 function 或 const
+  function add(text) {
+    if (!text || !text.trim()) return
+    list.value.unshift({
+      id: Date.now(),
+      text: text.trim(),
+      completed: false
+    })
+    save()
+  }
 
-    deleteTodo(id) {
-      this.list = this.list.filter(i => i.id !== id)
-      this.save()
-    },
+  function deleteTodo(id) {
+    list.value = list.value.filter(item => item.id !== id)
+    save()
+  }
 
-    save() {
-      uni.setStorageSync('todos', this.list)
+  function toggle(id) {
+    const item = list.value.find(item => item.id === id)
+    if (item) {
+      item.completed = !item.completed
+      save()
     }
+  }
+
+  // 必须在这里显示返回所有方法
+  return { 
+    list, 
+    add, 
+    deleteTodo, 
+    toggle 
   }
 })
