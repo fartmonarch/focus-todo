@@ -1,29 +1,38 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-		{
-			"path": "pages/index/index",
-			"style": {
-				"navigationBarTitleText": "uni-app"
-			}
-		},
-		{
-			"path": "pages/add/add",
-			"style": {
-				"navigationBarTitleText": ""
-			}
-		},
-		{
-			"path": "pages/focus/focus",
-			"style": {
-				"navigationBarTitleText": ""
-			}
-		}
-	],
-	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
-	},
-	"uniIdRouter": {}
+  "pages": [
+    {
+      "path": "pages/todo/index",
+      "style": { "navigationBarTitleText": "Todo" }
+    },
+    {
+      "path": "pages/timer/index",
+      "style": { "navigationBarTitleText": "Timer" }
+	}
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "FocusTodo Pro",
+    "navigationBarBackgroundColor": "#f5f5f5",
+    "backgroundColor": "#f5f5f5"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#007aff",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/todo/index",
+        "text": "Todo",
+        "iconPath": "static/todo.png",
+        "selectedIconPath": "static/todo-active.png"
+      },
+      {
+        "pagePath": "pages/timer/index",
+        "text": "Timer",
+        "iconPath": "static/timer.png",
+        "selectedIconPath": "static/timer-active.png"
+      }
+    ]
+  }
 }
