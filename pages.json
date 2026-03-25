@@ -1,38 +1,40 @@
 {
-  "pages": [{
-      "path": "pages/todo/index",
-      "style": {
-        "navigationBarTitleText": "待办"
-      }
+    "pages": [{
+            "path": "pages/todo/index",
+            "style": {
+                "navigationBarTitleText": "待办"
+            }
+        },
+        {
+            "path": "pages/timer/index",
+            "style": {
+                "navigationBarTitleText": "番茄钟"
+            }
+        }
+    ],
+    "globalStyle": {
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "FocusTodo Pro",
+        "navigationBarBackgroundColor": "#f5f5f5",
+        "backgroundColor": "#f5f5f5"
     },
-    {
-      "path": "pages/timer/index",
-      "style": {
-        "navigationBarTitleText": "番茄钟"
-      }
+    "tabBar": {
+        "color": "#999999",
+        "selectedColor": "#007aff",
+        "backgroundColor": "#ffffff",
+        "borderStyle": "white",
+        "list": [{
+                "pagePath": "pages/todo/index",
+                "text": "Todo",
+                "iconPath": "static/todo.png",
+                "selectedIconPath": "/static/todo.png"
+            },
+            {
+                "pagePath": "pages/timer/index",
+                "text": "Timer",
+                "iconPath": "static/timer.png",
+                "selectedIconPath": "/static/timer.png"
+            }
+        ]
     }
-  ],
-  "globalStyle": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "FocusTodo Pro",
-    "navigationBarBackgroundColor": "#f5f5f5",
-    "backgroundColor": "#f5f5f5"
-  },
-  "tabBar": {
-    "color": "#999999",
-    "selectedColor": "#007aff",
-    "backgroundColor": "#ffffff",
-    "borderStyle": "white",
-    "list": [{
-        "pagePath": "pages/todo/index",
-        "text": "Todo",
-        "iconPath": "static/todo.png"
-      },
-      {
-        "pagePath": "pages/timer/index",
-        "text": "Timer",
-        "iconPath": "static/timer.png"
-      }
-    ]
-  }
 }
