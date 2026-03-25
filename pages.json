@@ -1,13 +1,16 @@
 {
-  "pages": [
-    {
+  "pages": [{
       "path": "pages/todo/index",
-      "style": { "navigationBarTitleText": "Todo" }
+      "style": {
+        "navigationBarTitleText": "待办"
+      }
     },
     {
       "path": "pages/timer/index",
-      "style": { "navigationBarTitleText": "Timer" }
-	}
+      "style": {
+        "navigationBarTitleText": "番茄钟"
+      }
+    }
   ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
@@ -20,18 +23,15 @@
     "selectedColor": "#007aff",
     "backgroundColor": "#ffffff",
     "borderStyle": "white",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/todo/index",
         "text": "Todo",
-        "iconPath": "static/todo.png",
-        "selectedIconPath": "static/todo-active.png"
+        "iconPath": "static/todo.png"
       },
       {
         "pagePath": "pages/timer/index",
         "text": "Timer",
-        "iconPath": "static/timer.png",
-        "selectedIconPath": "static/timer-active.png"
+        "iconPath": "static/timer.png"
       }
     ]
   }
