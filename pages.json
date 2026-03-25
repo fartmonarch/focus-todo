@@ -31,7 +31,7 @@
             },
             {
                 "pagePath": "pages/timer/index",
-                "text": "Timer",
+                "text": "番茄钟",
                 "iconPath": "static/timer.png",
                 "selectedIconPath": "/static/timer.png"
             }

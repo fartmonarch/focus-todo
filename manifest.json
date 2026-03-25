@@ -1,7 +1,7 @@
 {
     "name" : "tomato-todo",
-    "appid" : "__UNI__74711F1",
-    "description" : "",
+    "appid" : "__UNI__46A8C02",
+    "description" : "番茄钟加代码的一个demo",
     "versionName" : "1.0.0",
     "versionCode" : "100",
     "transformPx" : false,
@@ -38,10 +38,13 @@
                     "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
                     "<uses-feature android:name=\"android.hardware.camera\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a", "x86" ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "dSYMs" : false
+            },
             /* SDK配置 */
             "sdkConfigs" : {}
         }
@@ -68,5 +71,11 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "3"
+    "vueVersion" : "3",
+    "h5" : {
+        "title" : "沫之白的待办小demo",
+        "devServer" : {
+            "https" : false
+        }
+    }
 }
