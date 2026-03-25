@@ -22,11 +22,11 @@
 
         <view class="control-panel">
             <button class="btn-main" :class="timerStore.running ? 'pause' : 'start'" @click="handleToggle">
-                {{ timerStore.running ? 'PAUSE' : 'START' }}
+                {{ timerStore.running ? '暂停' : '开始' }}
             </button>
 
             <view class="btn-reset-wrap" @click="handleReset">
-                <text class="btn-reset-text">RESTART</text>
+                <text class="btn-reset-text">重置</text>
             </view>
         </view>
     </view>
@@ -78,8 +78,10 @@
         audioCtx.play()
     }
 
-    // 核心修改 1：去除倒计时音效
     const handleToggle = () => {
+        uni.setKeepScreenOn({
+            keepScreenOn: true
+        });
         if (timerStore.running) {
             timerStore.stopTimer()
         } else {
