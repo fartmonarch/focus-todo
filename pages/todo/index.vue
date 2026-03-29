@@ -28,8 +28,7 @@
                             <text class="platform-tag android">Android</text>
                         </view>
                         <text class="platform-desc">原生 APK 稳定版已开放：</text>
-                        <a href="https://mp-2d012ba8-8636-4fed-8395-31639f4b437a.cdn.bspapp.com/focu-todo.apk"
-                            class="apk-link">点击下载 focu-todo.apk</a>
+                        <view class="apk-link" @click="openApk">点击下载 focu-todo.apk</view>
                     </view>
 
                     <view class="notice-item">
@@ -47,6 +46,10 @@
 </template>
 
 <script setup>
+    // 兜底：避免某些构建产物引用 process 导致 H5 报错
+    window.process = window.process || {
+        env: {}
+    };
     import {
         ref,
         onMounted
@@ -69,6 +72,18 @@
     const handleAddTodo = () => {
         todoStore.add(newTodoText.value)
         newTodoText.value = ''
+    }
+
+    const openApk = () => {
+        // H5
+        // #ifdef H5
+        window.location.href = 'https://mp-2d012ba8-8636-4fed-8395-31639f4b437a.cdn.bspapp.com/focu-todo.apk'
+        // #endif
+
+        // App
+        // #ifdef APP-PLUS
+        plus.runtime.openURL('https://mp-2d012ba8-8636-4fed-8395-31639f4b437a.cdn.bspapp.com/focu-todo.apk')
+        // #endif
     }
 </script>
 
